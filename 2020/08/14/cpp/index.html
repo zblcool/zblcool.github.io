@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>C++ Notes | Ash Zhang</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/logo.png">
+    <meta name="description" content="75 exmamples to learn C++
+
+1. Chapter 1 & 2
+1.1. C and C++
+    C++ is a superset of C
+
+#include
+using namespace std;
+
+int main()
+{
+    cout << "Hi there! This is a C++ world" << ...">
+    <link rel="preload" href="/assets/css/0.styles.18fd150e.css" as="style"><link rel="preload" href="/assets/js/app.0625b82a.js" as="script"><link rel="preload" href="/assets/js/10.8d8a5210.js" as="script"><link rel="preload" href="/assets/js/3.ce73e18d.js" as="script"><link rel="preload" href="/assets/js/27.8cbf5081.js" as="script"><link rel="prefetch" href="/assets/js/11.e3ec8421.js"><link rel="prefetch" href="/assets/js/12.e8964df8.js"><link rel="prefetch" href="/assets/js/13.388305fb.js"><link rel="prefetch" href="/assets/js/14.3b7911cc.js"><link rel="prefetch" href="/assets/js/15.a174a5b9.js"><link rel="prefetch" href="/assets/js/16.65cbd72c.js"><link rel="prefetch" href="/assets/js/17.65da1019.js"><link rel="prefetch" href="/assets/js/18.8ecc43e9.js"><link rel="prefetch" href="/assets/js/19.95b38d1f.js"><link rel="prefetch" href="/assets/js/20.44db5f35.js"><link rel="prefetch" href="/assets/js/21.61851675.js"><link rel="prefetch" href="/assets/js/22.1edbe02a.js"><link rel="prefetch" href="/assets/js/23.a52f19c7.js"><link rel="prefetch" href="/assets/js/24.d9bfc9cc.js"><link rel="prefetch" href="/assets/js/25.e762da1c.js"><link rel="prefetch" href="/assets/js/26.b938975c.js"><link rel="prefetch" href="/assets/js/28.5d37968f.js"><link rel="prefetch" href="/assets/js/29.786f2101.js"><link rel="prefetch" href="/assets/js/30.a544000e.js"><link rel="prefetch" href="/assets/js/31.a21dcd1f.js"><link rel="prefetch" href="/assets/js/32.e1cf7411.js"><link rel="prefetch" href="/assets/js/33.f937a5fb.js"><link rel="prefetch" href="/assets/js/34.d475a771.js"><link rel="prefetch" href="/assets/js/35.3d16aa6d.js"><link rel="prefetch" href="/assets/js/36.1bc10525.js"><link rel="prefetch" href="/assets/js/37.a30a509e.js"><link rel="prefetch" href="/assets/js/4.c7f62484.js"><link rel="prefetch" href="/assets/js/5.b16a9191.js"><link rel="prefetch" href="/assets/js/6.78ef3f0c.js"><link rel="prefetch" href="/assets/js/7.e2d925eb.js"><link rel="prefetch" href="/assets/js/8.9ea26045.js"><link rel="prefetch" href="/assets/js/9.85a9a617.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.9b3f7e90.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.18fd150e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">Ash Zhang </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/post/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/notes/" class="nav-link">Notes</a></li><li class="nav-item"><a href="/tag/" class="nav-link">Tags</a></li><li class="nav-item"><a href="/portfolio/" class="nav-link">Portfolio</a></li><li class="nav-item"><a href="/cv/" class="nav-link">CV</a></li><li class="nav-item"><a href="/tool/" class="nav-link">Tools</a></li><li class="nav-item"><a href="https://github.com/zblcool" target="_blank" rel="noopener noreferrer" class="nav-link external">Github</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">Ash Zhang </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/post/" class="nav-link">Blog</a></li><li class="mobile-nav-item"><a href="/notes/" class="nav-link">Notes</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">Tags</a></li><li class="mobile-nav-item"><a href="/portfolio/" class="nav-link">Portfolio</a></li><li class="mobile-nav-item"><a href="/cv/" class="nav-link">CV</a></li><li class="mobile-nav-item"><a href="/tool/" class="nav-link">Tools</a></li><li class="mobile-nav-item"><a href="https://github.com/zblcool" target="_blank" rel="noopener noreferrer" class="nav-link external">Github</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        C++ Notes
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Ash</span> <span itemprop="address">   in Sydney</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2020-08-14T00:00:00.000Z">
+      Fri Aug 14 2020
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-d832e844><a href="/tag/C++" data-v-d832e844> C++ </a></li><li class="post-tag" data-v-d832e844><a href="/tag/Notes" data-v-d832e844> Notes </a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><p>75 exmamples to learn C++</p> <h1 id="_1-chapter-1-2"><a href="#_1-chapter-1-2" class="header-anchor">#</a> 1. Chapter 1 &amp; 2</h1> <h2 id="_1-1-c-and-c"><a href="#_1-1-c-and-c" class="header-anchor">#</a> 1.1. C and C++</h2> <div class="language- extra-class"><pre><code>C++ is a superset of C
+</code></pre></div><div class="language-Cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hi there! This is a C++ world&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token comment">//&quot;&lt;&lt;&quot; means sent to</span>
+    <span class="token comment">// enl means &quot;\n&quot;</span>
+    <span class="token keyword">int</span> someNumber<span class="token punctuation">;</span> <span class="token comment">// hold user input in this variable</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Please enter some number:&quot;</span><span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> someNumber<span class="token punctuation">;</span> <span class="token comment">// C translation : scanf(&quot;%d&quot;,&amp;someNumber);  cin means standard input stream; &quot;&gt;&gt;&quot; means get from </span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;The number you entered was: &quot;</span> <span class="token operator">&lt;&lt;</span> someNumber<span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_1-1-1-c-namespace"><a href="#_1-1-1-c-namespace" class="header-anchor">#</a> 1.1.1. C++ namespace</h3> <p>Is like class and will define the global or local variables</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">namespace</span> client_code <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> someVariable <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span> 
+<span class="token keyword">namespace</span> utilities <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> someVariable <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">doSomethingElse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// the someVariables variable in each namespace is local variable.</span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> someGlobalVariable <span class="token comment">// global var here</span>
+</code></pre></div><h4 id="_1-1-1-1-how-to-refer-a-variable-in-another-diferent-namespace"><a href="#_1-1-1-1-how-to-refer-a-variable-in-another-diferent-namespace" class="header-anchor">#</a> 1.1.1.1. How to refer a variable in another diferent namespace</h4> <p><strong>scope</strong>
+The Scope resolution operator</p> <blockquote><p>&quot;::&quot;</p></blockquote> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// global</span>
+
+<span class="token keyword">namespace</span> private_space <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Hi there&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Variable a(local) = &quot;</span> <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> enl<span class="token punctuation">;</span><span class="token comment">// prints 20 . if there is no local then use global variable.</span>
+    cout<span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Variable a(global) = &quot;</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">::</span>a <span class="token operator">&lt;&lt;</span> enl<span class="token punctuation">;</span><span class="token comment">// prints 10</span>
+    cout<span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Variable a(private_space) = &quot;</span> <span class="token operator">&lt;&lt;</span> private_space<span class="token operator">::</span>a <span class="token operator">&lt;&lt;</span> enl<span class="token punctuation">;</span><span class="token comment">// prints -10  </span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_1-1-2-cout-and-cin"><a href="#_1-1-2-cout-and-cin" class="header-anchor">#</a> 1.1.2. cout and cin</h3> <p>cout use &lt;&lt; operator
+cin use &gt;&gt; operator</p> <div class="language- extra-class"><pre><code>operators can do different things base on the context
+
+The programmer can also redefine a operator
+</code></pre></div><h3 id="_1-1-3-c-function-overloading"><a href="#_1-1-3-c-function-overloading" class="header-anchor">#</a> 1.1.3. C++ function overloading</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">struct</span> <span class="token class-name">ComplexNumber</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> realPart
+    <span class="token keyword">int</span> imageinaryPart<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Struct ComplexNumber p1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+Struct ComplexNumber p2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+Struct ComplexNumber p2 <span class="token operator">=</span> p1 <span class="token operator">+</span> p2<span class="token punctuation">;</span>
+<span class="token comment">// just an example </span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">//check this example</span>
+<span class="token keyword">double</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token keyword">double</span> radius<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    returen <span class="token number">3.14</span> <span class="token operator">*</span> radius <span class="token operator">*</span> radius
+<span class="token punctuation">}</span>
+doubel <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token keyword">double</span> length<span class="token punctuation">,</span><span class="token keyword">double</span> breadth<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> length <span class="token operator">*</span> breadth<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>But C++ Functions can not be OVERLOADED on the RETURN TYPE!</strong></p> <h3 id="_1-1-4-default-value-for-function"><a href="#_1-1-4-default-value-for-function" class="header-anchor">#</a> 1.1.4. default value for function</h3> <p>pretty relevent to last section overloading. Cause you need to be cautious when setting it.</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">double</span> <span class="token function">print_3D_Coordinates</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">double</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">double</span> z <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span> 
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;A piont in 3-D space: x = &quot;</span><span class="token operator">&lt;&lt;</span>x<span class="token operator">&lt;&lt;</span><span class="token string">&quot;,y =&quot;</span><span class="token operator">&lt;&lt;</span><span class="token string">&quot;,z=&quot;</span><span class="token operator">&lt;&lt;</span>z<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">print_3D_Coordinates</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// prints &quot;x=0,y=0,z=0&quot;</span>
+<span class="token function">print_3D_Coordinates</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// prints &quot;x=10,y=0,z=0&quot;</span>
+<span class="token function">print_3D_Coordinates</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// prints &quot;x=10,y=20,z=0&quot;</span>
+<span class="token function">print_3D_Coordinates</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// prints &quot;x=10,y=20,z=30&quot;</span>
+</code></pre></div><h3 id="_1-1-5-reference"><a href="#_1-1-5-reference" class="header-anchor">#</a> 1.1.5. reference</h3> <p>How to swap two variables value in C++
+(if in C you need to use pointer)
+well, reference acutally is  poitner but the syntax is easier</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">double</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span> a<span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token comment">// &quot;int&amp;&quot; means &quot;int reference&quot; or ' a referernt to an int &quot; </span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> temp
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="_1-1-5-1-const"><a href="#_1-1-5-1-const" class="header-anchor">#</a> 1.1.5.1. const</h4> <p>const double PI = 3.1416;
+not use #DEFINE ( C language)</p> <p>well you can not use last reference if it is a const.</p> <h3 id="_1-1-6-bool"><a href="#_1-1-6-bool" class="header-anchor">#</a> 1.1.6. bool</h3> <p>C does not have bool
+C++ have bool contains true and false
+and 0 means false other number means true</p> <h1 id="_2-chapter-3-objects-and-classes"><a href="#_2-chapter-3-objects-and-classes" class="header-anchor">#</a> 2. chapter 3 objects and classes</h1> <h2 id="_2-1-class"><a href="#_2-1-class" class="header-anchor">#</a> 2.1. Class</h2> <p>To C. Classes is like a &quot;struct&quot; with functions
+in C. Struct does not have functions only variables. and the variables are public</p> <h3 id="_2-1-1-constructor-and-destructor"><a href="#_2-1-1-constructor-and-destructor" class="header-anchor">#</a> 2.1.1. constructor and Destructor</h3> <p><em>constructor</em>
+A member function to take care of taking these values into member varaibles.And assigning to the corresponding member variabsle</p> <p><em>Destructor</em>
+Amember function to take care of cleanning the object before it ceases to exist</p> <blockquote><p>Destuctor always has the same name as the class. preceded by a Tilde (~)</p></blockquote> <div class="language- extra-class"><pre><code>The C++ compiler will automatically call the destructor when an object of the class is about to cease to exist
+</code></pre></div><h3 id="_2-1-2-inherit-from-other-class"><a href="#_2-1-2-inherit-from-other-class" class="header-anchor">#</a> 2.1.2. Inherit from other class</h3> <p>Other types can build on the existing class</p> <h3 id="_2-1-3-example-1-defind-a-really-simple-c-class"><a href="#_2-1-3-example-1-defind-a-really-simple-c-class" class="header-anchor">#</a> 2.1.3. example 1 Defind a really simple C++ class</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">ComplexNumber</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span><span class="token operator">:</span>
+        <span class="token keyword">float</span> realPart<span class="token punctuation">;</span>
+        <span class="token keyword">float</span> complexPart<span class="token punctuation">;</span>
+    publc<span class="token operator">:</span>
+        <span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//constructor have the same name with the class. C++ will automaticly call this constructor when there is no argument inside</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;No arg-constructor called&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">void</span> <span class="token function">setMemberVariables</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">,</span><span class="token keyword">double</span> c<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            realPart <span class="token operator">=</span> r<span class="token punctuation">;</span>
+            complexPart <span class="token operator">=</span> c<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">float</span> <span class="token function">getRealPart</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> realPart<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">float</span> <span class="token function">getComplexPart</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> complexPart<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;real=&quot;</span><span class="token operator">&lt;&lt;</span> realPart<span class="token operator">&lt;&lt;</span> <span class="token string">&quot;comlex=&quot;</span><span class="token operator">&lt;&lt;</span> complexPart<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="_2-1-4-example-2-instantiate-an-object-of-a-really-simple-class"><a href="#_2-1-4-example-2-instantiate-an-object-of-a-really-simple-class" class="header-anchor">#</a> 2.1.4. example 2 instantiate an object of a really simple class</h3> <p>instantiate an object of a really simple class = creating a variable of that class</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ComplexNumber c<span class="token punctuation">;</span> <span class="token comment">// will auto call constructor now (if there is no construtor. C++ will create one for you)</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;hello there&quot;</span><span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">setMemberVariables</span><span class="token punctuation">(</span><span class="token number">3.14</span><span class="token punctuation">,</span><span class="token number">5.3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;Okey all done&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-1-5-example-3-invoke-member-function-of-an-object"><a href="#_2-1-5-example-3-invoke-member-function-of-an-object" class="header-anchor">#</a> 2.1.5. example 3 invoke member function of an object.</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ComplexNumber c1<span class="token punctuation">,</span>c2<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;C1 holds&quot;</span><span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    c1<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;C2 holds&quot;</span><span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    c2<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    c1<span class="token punctuation">.</span><span class="token function">setMemberVariables</span><span class="token punctuation">(</span><span class="token number">3.14</span><span class="token punctuation">,</span><span class="token number">5.3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    c1<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token operator">&gt;&gt;</span>
+    c2<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Okey-Dokey!&quot;</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-1-6-example-4-correctly-use-an-initianlisation-list-in-a-constructor"><a href="#_2-1-6-example-4-correctly-use-an-initianlisation-list-in-a-constructor" class="header-anchor">#</a> 2.1.6. example 4 correctly use an initianlisation list in a constructor</h3> <p><strong>initianlisation list</strong></p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">realPart</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">complexPart</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span> <span class="token comment">// this is initianlisation list</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;No arg-constructor called&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+
+<span class="token comment">// The reason to use ini... li.. rather than put that into body is to avoid reassignment.</span>
+</code></pre></div><h3 id="_2-1-7-example-5-use-a-destructor-properly-to-clean-up-member-varaiables"><a href="#_2-1-7-example-5-use-a-destructor-properly-to-clean-up-member-varaiables" class="header-anchor">#</a> 2.1.7. example 5 use a DESTRUCTOR properly to clean up member varaiables</h3> <div class="language- extra-class"><pre><code>The destructor got called AFTER the last line of code was execute.
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Student</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span><span class="token operator">:</span>
+        <span class="token keyword">char</span> <span class="token operator">*</span> studentName<span class="token punctuation">;</span>
+    <span class="token keyword">public</span><span class="token operator">:</span>
+        <span class="token function">Student</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> name<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;bala&quot;</span> <span class="token operator">&lt;&lt;</span> name<span class="token operator">&gt;&gt;</span>
+            studentName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token function">strcpy</span><span class="token punctuation">(</span>studentName<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span><span class="token string">&quot;Initializaed string to&quot;</span> <span class="token operator">&lt;&lt;</span> studentName <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token operator">~</span><span class="token function">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Freeing up memory for string&quot;</span><span class="token operator">&lt;&lt;</span> studentName <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+            <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> studentName<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_2-1-8-example-6-access-modifiers"><a href="#_2-1-8-example-6-access-modifiers" class="header-anchor">#</a> 2.1.8. example 6 ACCESS MODIFIERS</h3> <p>: Private, Public, Protected</p> <p>All member variables private always</p> <p>Provide public setter and getter to access the data in it</p> <p>This is because others can rely on you. Coz you are overall stable, wont change variables</p> <h2 id="_2-2-chapter-4-mutiple-files-system"><a href="#_2-2-chapter-4-mutiple-files-system" class="header-anchor">#</a> 2.2. chapter 4 mutiple files system</h2> <p>Normally will spilt into two files</p> <div class="language- extra-class"><pre><code>DECLARATION Header file .H
+&amp;
+DEFINITION Source file .cpp
+
+Body in .cpp 
+signature in .h
+</code></pre></div><p>When inclde in another file , only include .h
+When compile, only compile cpp</p> <ul><li>DECLARATION ComplexNumber.h</li></ul> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">ComplexNumber</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span><span class="token operator">:</span>
+        <span class="token keyword">float</span> realPart<span class="token punctuation">;</span>
+        <span class="token keyword">float</span> complexPart<span class="token punctuation">;</span>
+    <span class="token keyword">public</span><span class="token operator">:</span>
+        <span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token keyword">double</span> c<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token keyword">const</span> ComplexNumber<span class="token operator">&amp;</span> rhs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>DEFINITION .cpp</li></ul> <p>::  scope resolution</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;ComplexNumber.h&quot;</span></span>
+
+ComplexNumber<span class="token operator">::</span><span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">realPart</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">complexPart</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ComplexNumber<span class="token operator">::</span><span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token keyword">double</span> c<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">realPart</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">complexPart</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ComplexNumber<span class="token operator">::</span><span class="token function">ComplexNumber</span><span class="token punctuation">(</span><span class="token keyword">const</span> ComplexNumber<span class="token operator">&amp;</span> rhs<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">realPart</span><span class="token punctuation">(</span>rhs<span class="token punctuation">.</span>realPart<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">complexPart</span><span class="token punctuation">(</span>rhs<span class="token punctuation">.</span>complexPart<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">&quot;&quot;</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="uts-dsa-notes"><a href="#uts-dsa-notes" class="header-anchor">#</a> UTS DSA notes</h1> <h1 id="week1"><a href="#week1" class="header-anchor">#</a> Week1</h1> <h2 id="_1-1-stack-and-heap-in-the-memeory"><a href="#_1-1-stack-and-heap-in-the-memeory" class="header-anchor">#</a> 1.1 stack and heap in the memeory</h2> <div class="language- extra-class"><pre><code>stack is static and will be automaticly cleaned
+heap is dynamic and need programmer to clean it manuly 
+</code></pre></div><h2 id="_1-2-c-has-references"><a href="#_1-2-c-has-references" class="header-anchor">#</a> 1.2 C++ has references</h2> <blockquote><p>they like pointers but they cant change where they are pointing after initialisition
+And they are transparently dereferenced</p></blockquote> <div class="language- extra-class"><pre><code>Use &amp; operator to create it.
+</code></pre></div><h1 id="week2"><a href="#week2" class="header-anchor">#</a> week2</h1> <h2 id="_2-1-delete"><a href="#_2-1-delete" class="header-anchor">#</a> 2.1 Delete</h2> <blockquote><p>delete is need when we've create something with <em>new</em></p></blockquote> <p>otherwise we have a memory leak</p> <h2 id="_2-2-queue"><a href="#_2-2-queue" class="header-anchor">#</a> 2.2 Queue</h2> <p>only have three method:</p> <ul><li>enqueue()</li> <li>dequeue()</li> <li>peek()</li></ul> <p><em>Deque</em> is a double ended queue. you can add and remove from both sides.</p> <p><em>Priority Queue</em> is a queue but the elements inserted with a priority.</p> <h2 id="_2-3-stack"><a href="#_2-3-stack" class="header-anchor">#</a> 2.3 Stack</h2> <blockquote><p>it is like a queue but its a last in first out data strcuture.</p></blockquote> <p>you can add to the top and remove from top</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">intStack</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span><span class="token operator">:</span>
+
+        <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">intStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">virtual</span> <span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">virtual</span> <span class="token keyword">int</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h1 id="week-4"><a href="#week-4" class="header-anchor">#</a> Week 4</h1> <h2 id="divide-and-conquer"><a href="#divide-and-conquer" class="header-anchor">#</a> Divide and Conquer</h2> <ul><li>binarySearch</li> <li>Mergesort</li> <li>Quicksort</li></ul> <p>^ they all use D&amp;C algorithm.</p></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#_1-1-c-and-c" title="1.1. C and C++">1.1. C and C++</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-1-c-namespace" title="1.1.1. C++ namespace">1.1.1. C++ namespace</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-2-cout-and-cin" title="1.1.2. cout and cin">1.1.2. cout and cin</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-3-c-function-overloading" title="1.1.3. C++ function overloading">1.1.3. C++ function overloading</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-4-default-value-for-function" title="1.1.4. default value for function">1.1.4. default value for function</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-5-reference" title="1.1.5. reference">1.1.5. reference</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_1-1-6-bool" title="1.1.6. bool">1.1.6. bool</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2-1-class" title="2.1. Class">2.1. Class</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-1-constructor-and-destructor" title="2.1.1. constructor and Destructor">2.1.1. constructor and Destructor</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-2-inherit-from-other-class" title="2.1.2. Inherit from other class">2.1.2. Inherit from other class</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-3-example-1-defind-a-really-simple-c-class" title="2.1.3. example 1 Defind a really simple C++ class">2.1.3. example 1 Defind a really simple C++ class</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-4-example-2-instantiate-an-object-of-a-really-simple-class" title="2.1.4. example 2 instantiate an object of a really simple class">2.1.4. example 2 instantiate an object of a really simple class</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-5-example-3-invoke-member-function-of-an-object" title="2.1.5. example 3 invoke member function of an object.">2.1.5. example 3 invoke member function of an object.</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-6-example-4-correctly-use-an-initianlisation-list-in-a-constructor" title="2.1.6. example 4 correctly use an initianlisation list in a constructor">2.1.6. example 4 correctly use an initianlisation list in a constructor</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-7-example-5-use-a-destructor-properly-to-clean-up-member-varaiables" title="2.1.7. example 5 use a DESTRUCTOR properly to clean up member varaiables">2.1.7. example 5 use a DESTRUCTOR properly to clean up member varaiables</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#_2-1-8-example-6-access-modifiers" title="2.1.8. example 6 ACCESS MODIFIERS">2.1.8. example 6 ACCESS MODIFIERS</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2-2-chapter-4-mutiple-files-system" title="2.2. chapter 4 mutiple files system">2.2. chapter 4 mutiple files system</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_1-1-stack-and-heap-in-the-memeory" title="1.1 stack and heap in the memeory">1.1 stack and heap in the memeory</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_1-2-c-has-references" title="1.2 C++ has references">1.2 C++ has references</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2-1-delete" title="2.1 Delete">2.1 Delete</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2-2-queue" title="2.2 Queue">2.2 Queue</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2-3-stack" title="2.3 Stack">2.3 Stack</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#divide-and-conquer" title="Divide and Conquer">Divide and Conquer</a></div></div></div></div> <footer class="footer" data-v-fdbf4940><div class="footer-left-wrap" data-v-fdbf4940><ul class="contact" data-v-fdbf4940><li class="contact-item" data-v-fdbf4940><a href="https://github.com/zblcool" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-fdbf4940><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-fdbf4940><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-fdbf4940></path></svg>
+          
+        </a></li><li class="contact-item" data-v-fdbf4940><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-fdbf4940><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram" data-v-fdbf4940><rect x="2" y="2" width="20" height="20" rx="5" ry="5" data-v-fdbf4940></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" data-v-fdbf4940></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5" data-v-fdbf4940></line></svg>
+          
+        </a></li><li class="contact-item" data-v-fdbf4940><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-fdbf4940><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin" data-v-fdbf4940><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" data-v-fdbf4940></path><rect x="2" y="9" width="4" height="12" data-v-fdbf4940></rect><circle cx="4" cy="4" r="2" data-v-fdbf4940></circle></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-fdbf4940><ul class="copyright" data-v-fdbf4940><li class="copyright-item" data-v-fdbf4940><a href="/2020/08/14/cpp/.html" class="nav-link" data-v-fdbf4940>Powered by VuePress | Ash © 1995-present</a></li></ul></div></footer></div><div class="global-ui"><div class="container" data-v-0178ff65><canvas id="live2d" width="280" height="250" class="live2d-right" data-v-0178ff65></canvas></div></div></div>
+    <script src="/assets/js/app.0625b82a.js" defer></script><script src="/assets/js/10.8d8a5210.js" defer></script><script src="/assets/js/3.ce73e18d.js" defer></script><script src="/assets/js/27.8cbf5081.js" defer></script>
+  </body>
+</html>
