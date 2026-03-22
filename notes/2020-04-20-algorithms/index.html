@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Algorithms Notes | Ash Zhang</title><meta name="description" content="Algorithms Notes"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="false"> Posts </a><a href="/notes/" data-active="true"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Note</div> <h1>Algorithms Notes</h1> <div class="article-meta"> <span>20 Apr 2020</span>  <span> · </span> <span>Sydney</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/algorithms/"> Algorithms </a><a class="tag-link" href="/tag/notes/"> Notes </a> </div> <div class="article-body"> <h1 id="1-algorithms-notes">1. Algorithms Notes</h1>
+<ul>
+<li><a href="#1-algorithms-notes">1. Algorithms Notes</a>
+<ul>
+<li><a href="#11-quick-find">1.1. Quick-Find</a></li>
+<li><a href="#12-quick-union">1.2. Quick-Union</a>
+<ul>
+<li><a href="#121-data-structure">1.2.1. DATA Structure</a></li>
+<li><a href="#122-find-way">1.2.2. Find way</a></li>
+<li><a href="#123-union">1.2.3. Union</a></li>
+<li><a href="#124-problems">1.2.4. Problems</a></li>
+<li><a href="#125-improvement">1.2.5. Improvement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-quick-find">1.1. Quick-Find</h2>
+<ul>
+<li>easy to think but not efficient</li>
+</ul>
+<h2 id="12-quick-union">1.2. Quick-Union</h2>
+<blockquote>
+<p>“still easy but cost too much”</p>
+</blockquote>
+<h3 id="121-data-structure">1.2.1. DATA Structure</h3>
+<ul>
+<li>in the id[ i ]  array, each number have a roots if they are union with another one . So the number it stores is the number of id[ i ] , Which indicates the root of it. Keep finding ,and you will find the real root.</li>
+</ul>
+<h3 id="122-find-way">1.2.2. Find way</h3>
+<ul>
+<li>check if  p and q have the same root</li>
+</ul>
+<h3 id="123-union">1.2.3. Union</h3>
+<ul>
+<li>To merge components containing p and q . Set the id of p’s root to the id of  q’s root</li>
+<li>Dont have to connect one with another one . Just connect with its root. Because when you want to check if they are connected . Only check their roots</li>
+</ul>
+<h3 id="124-problems">1.2.4. Problems</h3>
+<ul>
+<li>The tree might be really tall . So each time you need to do ROOT() function too many times.</li>
+</ul>
+<h3 id="125-improvement">1.2.5. Improvement</h3>
+<ul>
+<li>Weighted quick-union
+<ul>
+<li>Weighting the tree . There is gonna be two kinds of tree . longer tree and smaller tree .Make sure connect the smaller tree’s root to the longer one’s</li>
+<li>But how to know which tree is longer? how to mark this
+<ul>
+<li>add another array named size[ ]  put the depth of root in it.</li>
+<li>compare the depth while merging the trees.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>

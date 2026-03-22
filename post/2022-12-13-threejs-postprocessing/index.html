@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Do not use forEach with async-await. Use For loop instead | Ash Zhang</title><meta name="description" content="Do not use forEach with async-await. Use For loop instead"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="true"> Posts </a><a href="/notes/" data-active="false"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Post</div> <h1>Do not use forEach with async-await. Use For loop instead</h1> <div class="article-meta"> <span>13 Dec 2022</span>  <span> · </span> <span>Runcorn, Brisbane</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/computer-graphics/"> Computer Graphics </a><a class="tag-link" href="/tag/three-js/"> Three.js </a><a class="tag-link" href="/tag/front-end/"> Front End </a> </div> <div class="article-body"> <p><a href="https://github.com/mrdoob/three.js/issues/14104#issuecomment-429664412">Unreal Bloom and Renderer Transparency issue · Issue #14104 · mrdoob/three.js (github.com)</a></p>
+<ul>
+<li>Antialias. Was because the size of the composer
+<ul>
+<li>composer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);</li>
+<li>Or set size and pixel ratio of renderer before you pass renderer into composer.
+<ul>
+<li>Means these lines:</li>
+<li>renderer.setPixelRatio(window.devicePixelRatio);</li>
+<li>renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);</li>
+<li>have to be before this line:</li>
+<li>const composer = new EffectComposer(renderer);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>clearPass.</li>
+</ul>
+<p><img src="/pics/blog/train.gif" alt=""></p>
+<p>post-processing in React three fibre</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">  // start mind-ar</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#B392F0"> start</span><span style="color:#F97583"> =</span><span style="color:#F97583"> async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">renderer</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">scene</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">camera</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> mindarThree </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> {}</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">isDef</span><span style="color:#E1E4E8">(mindarThree)) {</span></span>
+<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">debug</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'starting AR...'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">      renderer.</span><span style="color:#B392F0">setClearColor</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0x000000</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0.0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6A737D">      // renderer.antialias = false</span></span>
+<span class="line"><span style="color:#F97583">      let</span><span style="color:#E1E4E8"> clearPass </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> ClearPass</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0x000000</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">      </span></span>
+<span class="line"><span style="color:#E1E4E8">      camera.layers.</span><span style="color:#B392F0">enable</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> renderScene</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> RenderPass</span><span style="color:#E1E4E8">( scene, camera );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">      // stop the default clear bahaviour of the renderer. use the clearPass instead.</span></span>
+<span class="line"><span style="color:#E1E4E8">      renderScene.clear </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span></span>
+<span class="line"><span style="color:#F97583">      let</span><span style="color:#E1E4E8"> bloomPass </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> UnrealBloomPass</span><span style="color:#E1E4E8">( </span><span style="color:#F97583">new</span><span style="color:#B392F0"> Vector2</span><span style="color:#E1E4E8">( window.innerWidth, window.innerHeight ), </span><span style="color:#79B8FF">3.0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1.3</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0.1</span><span style="color:#E1E4E8"> );</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> effectFXAA</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> ShaderPass</span><span style="color:#E1E4E8">( FXAAShader )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">      //</span></span>
+<span class="line"><span style="color:#6A737D">      // in order to make the unreal bloom effect works. espesially remove the dark background. we need to fix the original file. I have put </span></span>
+<span class="line"><span style="color:#6A737D">      // a file in ../scripts/UnrealBloomPass.js. Replace the one in three/examples/jsm/postprocessing/UnrealBloomPass.js . If you have better way to solve this that will be nice.</span></span>
+<span class="line"><span style="color:#6A737D">      //</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> bloomComposer</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> EffectComposer</span><span style="color:#E1E4E8">( renderer );</span></span>
+<span class="line"><span style="color:#6A737D">      // need to set the size of the composer. otherwise the scene looks pixelated.</span></span>
+<span class="line"><span style="color:#E1E4E8">      bloomComposer.</span><span style="color:#B392F0">setSize</span><span style="color:#E1E4E8">(window.innerWidth, window.innerHeight)</span></span>
+<span class="line"><span style="color:#E1E4E8">			bloomComposer.renderToScreen </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      bloomComposer.</span><span style="color:#B392F0">addPass</span><span style="color:#E1E4E8">( clearPass );</span></span>
+<span class="line"><span style="color:#E1E4E8">			bloomComposer.</span><span style="color:#B392F0">addPass</span><span style="color:#E1E4E8">( renderScene );</span></span>
+<span class="line"><span style="color:#E1E4E8">			bloomComposer.</span><span style="color:#B392F0">addPass</span><span style="color:#E1E4E8">( bloomPass );</span></span>
+<span class="line"><span style="color:#E1E4E8">      bloomComposer.</span><span style="color:#B392F0">addPass</span><span style="color:#E1E4E8">(effectFXAA);</span></span>
+<span class="line"><span style="color:#E1E4E8">      </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">      await</span><span style="color:#E1E4E8"> mindarThree.</span><span style="color:#B392F0">start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'starting animation loop...'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">      renderer.</span><span style="color:#B392F0">setAnimationLoop</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {        </span></span>
+<span class="line"><span style="color:#E1E4E8">        renderer.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(scene, camera);</span></span>
+<span class="line"><span style="color:#6A737D">        // call any custom animators for the currently active model</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (activeAnchor.current </span><span style="color:#F97583">></span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">          const</span><span style="color:#79B8FF"> model</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> loadedModels[activeAnchor.current]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">          if</span><span style="color:#E1E4E8"> (model </span><span style="color:#F97583">!==</span><span style="color:#79B8FF"> null</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#F97583"> typeof</span><span style="color:#E1E4E8"> model.onAnimate </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'function'</span><span style="color:#E1E4E8">) model.</span><span style="color:#B392F0">onAnimate</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#6A737D">          // if the model need bloom effect. then init the render.</span></span>
+<span class="line"><span style="color:#F97583">          if</span><span style="color:#E1E4E8"> (model </span><span style="color:#F97583">!==</span><span style="color:#79B8FF"> null</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> model.onBloomEffect </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">)  bloomComposer.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">      });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span></code></pre>
+<p><img src="/pics/blog/train2.gif" alt=""></p> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>

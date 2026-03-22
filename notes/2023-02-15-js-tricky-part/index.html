@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Do not use forEach with async-await. Use For loop instead | Ash Zhang</title><meta name="description" content="Do not use forEach with async-await. Use For loop instead"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="false"> Posts </a><a href="/notes/" data-active="true"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Note</div> <h1>Do not use forEach with async-await. Use For loop instead</h1> <div class="article-meta"> <span>15 Feb 2023</span>  <span> · </span> <span>Runcorn, Brisbane</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/javascript/"> JavaScript </a><a class="tag-link" href="/tag/notes/"> Notes </a><a class="tag-link" href="/tag/front-end/"> Front End </a> </div> <div class="article-body"> <h1 id="array">Array</h1>
+<p>Those thing relates to array/ map / reduce etc.</p>
+<h2 id="do-not-use-foreach-with-async-await-use-for-loop-instead">Do not use forEach with async-await. Use For loop instead</h2>
+<blockquote>
+<p>Ash’s quote. This is tricky when you want to do several MongoDB operation in the loop. Things may not going the way you want. In my case. I try to insert several new docs into the db and give them a new globalId. and made some change base on each doc.However, using forEach / map in my case. The different doc may have same globalID. since forEach loop is not actual waiting anything.</p>
+</blockquote>
+<blockquote>
+<p><strong>Use <code>for...of</code> instead of <code>forEach</code> in asynchronous code.</strong>
+{.is-success}</p>
+</blockquote>
+<h3 id="the-problem">The problem</h3>
+<p><code>Array.prototype.forEach</code> is not designed for asynchronous code.  (It was not suitable for promises, and it is not suitable for async-await.)</p>
+<p>For example, the following forEach loop might not do what it appears to do:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> players</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">getWinners</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// BAD</span></span>
+<span class="line"><span style="color:#F97583">await</span><span style="color:#E1E4E8"> players.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">player</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  await</span><span style="color:#B392F0"> givePrizeToPlayer</span><span style="color:#E1E4E8">(player);</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">await</span><span style="color:#B392F0"> sendEmailToAdmin</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'All prizes awarded'</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p>What’s wrong with it?</p>
+<ul>
+<li>The promises returned by the iterator function are not handled.  So if one of them throws an error, the error won’t be caught.  (In Node 10, if no <code>unhandledrejection</code> listener has been registered, that will cause the process to crash!)</li>
+<li>Because <code>forEach</code> does not wait for each promise to resolve, all the prizes are awarded in parallel, not serial (one by one).</li>
+<li>So the loop actually finishes iterating before any of the prizes have finished being awarded!  (But after they have all started being awarded).</li>
+<li>As a result, <code>sendEmailToAdmin()</code> sends the email before any of the prizes have finished being awarded.  Maybe none of them will end up being awarded (they might all throw an error)!</li>
+</ul>
+<h3 id="so-how-should-we-write-this">So how should we write this?</h3>
+<h4 id="process-each-player-in-serial">Process each player in serial</h4>
+<p>Fortunately if your language has async-await then it will also have the <code>for...of</code> construction, so you can use that.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> player</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> players) {</span></span>
+<span class="line"><span style="color:#F97583">  await</span><span style="color:#B392F0"> givePrizeToPlayer</span><span style="color:#E1E4E8">(player);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>This loop will wait for one prize to be awarded before proceeding to the next one.</p>
+<p>You could also use a traditional <code>for(...;...;...)</code> here but that is more verbose than we need.</p>
+<p><em>Note:</em> The airbnb style guide recommends <em>not</em> using <code>for...of</code> for <em>web apps</em> at the current time (2018), because it requires a large polyfill.  If you are working in the browser, use the traditional for mentioned above, or <code>Array.reduce()</code> described below.</p>
+<h4 id="process-all-the-players-in-parallel">Process all the players in parallel</h4>
+<p>If the order doesn’t matter, it may be quicker to process all the players in parallel.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">await</span><span style="color:#79B8FF"> Promise</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">all</span><span style="color:#E1E4E8">(players.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">player</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  await</span><span style="color:#B392F0"> givePrizeToPlayer</span><span style="color:#E1E4E8">(player);</span></span>
+<span class="line"><span style="color:#E1E4E8">}));</span></span></code></pre>
+<p>This will start awarding all the prizes at once, but it will wait for all of them to complete before proceeding to <code>sendEmailToAdmin()</code>.</p>
+<h4 id="process-each-player-in-serial-using-arrayprototypereduce">Process each player in serial, using <code>Array.prototype.reduce</code></h4>
+<p>Some people recommend this approach:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">await</span><span style="color:#E1E4E8"> players.</span><span style="color:#B392F0">reduce</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">a</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">player</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">  // Wait for the previous item to finish processing</span></span>
+<span class="line"><span style="color:#F97583">  await</span><span style="color:#E1E4E8"> a;</span></span>
+<span class="line"><span style="color:#6A737D">  // Process this item</span></span>
+<span class="line"><span style="color:#F97583">  await</span><span style="color:#B392F0"> givePrizeToPlayer</span><span style="color:#E1E4E8">(player);</span></span>
+<span class="line"><span style="color:#E1E4E8">}, </span><span style="color:#79B8FF">Promise</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">resolve</span><span style="color:#E1E4E8">());</span></span></code></pre>
+<p>(We are using the accumulator <code>a</code> not as a total or a summary, but just as a way to pass the promise from the previous item’s callback to the next item’s callback, so that we can wait for the previous item to finish being processed.)</p>
+<p>This has pretty much the same behaviour as the <code>for...of</code> above, but is slightly harder to read.</p>
+<p>However it is recommended by the Airbnb style guide because it can reduce the browser bundle size.  <code>for...of</code> requires iterators, and some browsers require a polyfill for iterators, and that polyfill is quite large.  You can decide on the trade-off between bundle size and developer convenience.</p>
+<h3 id="so-which-array-functions-can-i-use">So which array functions can I use?</h3>
+<p><em>TLDR:</em> Only <code>map()</code>, <code>reduce()</code>, <code>flatMap()</code> and <code>reduceRight()</code> if used correctly</p>
+<p>async-await works naturally with <code>for</code> loops and <code>while</code> loops, because they are written in the original function body.</p>
+<p>But when you call out to another function, it can only work with async-await if it returns a promise, and if that promise is handled (awaited or <code>.then()</code>-ed).</p>
+<p>That is why we can use <code>.reduce()</code> and <code>.map()</code> above, because in both cases we return a promise (or an array of promises) which we can await.  (In the reduce case, each invocation of the callback function waits for the previous promise to resolve, to ensure sequential processing.)</p>
+<p>But most array functions will not give us a promise back, or allow a promise to be passed from one call to the next, so they cannot be used asynchronously.  So, for example, you can not use asynchronous code inside <code>array.some()</code> or <code>array.filter()</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// BAD</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> playersWithGoodScores</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> players.</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">player</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> score</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> calculateLatestScore</span><span style="color:#E1E4E8">(player);</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> score </span><span style="color:#F97583">>=</span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<p>It might look like that should work but it won’t, because <code>filter</code> was never designed with promises in mind.  When <code>filter</code> calls your callback function, it will get a <code>Promise</code> back, but instead of awaiting that promise, it will just see the promise as “truthy”, and immediately accept the player, regardless of what their score will eventually be.</p>
+<p>You may be able to find a library of array functions that can work asynchronously, but the standard array functions do not.</p>
+<blockquote>
+<p>Reference  <a href="https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971">https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971</a>
+{.is-info}</p>
+</blockquote> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>

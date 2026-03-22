@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Divide and Conquer | Ash Zhang</title><meta name="description" content="Divide and Conquer"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="false"> Posts </a><a href="/notes/" data-active="true"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Note</div> <h1>Divide and Conquer</h1> <div class="article-meta"> <span>14 June 2020</span>  <span> · </span> <span>Sydney</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/algorithms/"> Algorithms </a><a class="tag-link" href="/tag/notes/"> Notes </a> </div> <div class="article-body"> <h2 id="1-intro">1. Intro</h2>
+<ul>
+<li>Why Study Algorithms
+<ul>
+<li>technology innovation</li>
+<li>provides the lens outside the computer science</li>
+</ul>
+</li>
+<li>Integer multiplication
+<ul>
+<li>product X,Y .</li>
+</ul>
+<blockquote>
+<p>product means output</p>
+</blockquote>
+</li>
+<li>Karatsuba multiplication
+<ul>
+<li>recursive</li>
+</ul>
+<blockquote>
+<p>call you self</p>
+</blockquote>
+<ul>
+<li>base case</li>
+</ul>
+<blockquote>
+<p>basic situation of something</p>
+</blockquote>
+<ul>
+<li>refine</li>
+</ul>
+<blockquote>
+<p>optimise</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-sorting">2. Sorting</h2>
+<ul>
+<li>
+<h3 id="buble">buble</h3>
+<ul>
+<li>compare every item with its neighbour A &#x26; B</li>
+<li>if A is bigger then switch two items’s position</li>
+<li>do the loop from the first item to last item so there will be n item</li>
+<li>the first item do n-1 times, last item do 0 times</li>
+<li>(n-1 + 0)* n / 2 times overall</li>
+<li>so the time complexity is O(n^2)</li>
+</ul>
+</li>
+<li>
+<h3 id="selection">selection</h3>
+<blockquote>
+<p>“finding the smallest one first.
+but we can also find the biggest one instead ”</p>
+</blockquote>
+<ul>
+<li>Loop (n-1) times // O(N)
+<ul>
+<li>set the first one as the SMALLEST one</li>
+<li>loop and compare every one if they are smaller than the SMALLEST one // O (N)
+<ul>
+<li>if some one did then set its value to the new SMALLEST</li>
+</ul>
+</li>
+<li>change their position ( new Smallest and the SMALLEST we set before the loop) // O(1)</li>
+</ul>
+</li>
+<li>Still O(n^2)</li>
+</ul>
+</li>
+<li>
+<h3 id="insertsort">InsertSort</h3>
+<blockquote>
+<p>“insert the unordered items into the ordered sequence like a poker”</p>
+</blockquote>
+<ul>
+<li>Loop( i =1 i&#x3C; array.length i++)
+<ul>
+<li>if (array[i] &#x3C; array[i-1]) {
+“Start from left, go to right. when right is bigger than left , start the follow loop”
+<ul>
+<li>int temp  = array[i]
+“to store the one we are working on. But we don’t change others only focus on this one (who become the temp)”</li>
+<li>int j = i
+“we want to operate it so we create a new agent “j""</li>
+<li>while ( j>0 &#x26;&#x26; temp&#x3C; array[j-1]){
+“we are actually pull out the temp(array[i]) out and operates others ”
+<ul>
+<li>array[j] = array[j-1]
+“just let the left item become the right one. and leave temp. temp is still temp(don’t change temp now . So this will just work on everyone to change their number equals to left one )”</li>
+<li>j—
+<blockquote>
+<p>“<a href="https://pic3.zhimg.com/v2-91b76e8e4dab9b0cad9a017d7dd431e2_b.webp">https://pic3.zhimg.com/v2-91b76e8e4dab9b0cad9a017d7dd431e2_b.webp</a>”</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>array[j] = temp</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Overall: O(N) in best case ( good order) and O(N*N)=O(N^2) in bad case</li>
+</ul>
+</li>
+<li>
+<h3 id="merge-sort">Merge Sort</h3>
+<ul>
+<li>things to do
+<ul>
+<li>divide into two part</li>
+<li>recursive each</li>
+<li>combine</li>
+</ul>
+</li>
+<li>How to combine
+<ul>
+<li>C = output [length = n]</li>
+<li>A = 1st sorted array [n/2]</li>
+<li>B = 2nd sorted array [n/2]</li>
+<li>i=1 j=1</li>
+<li>for k = 1 to n
+<ul>
+<li>if A(i)&#x3C;B(j)
+<ul>
+<li>C(k) = A(i)</li>
+<li>i++</li>
+</ul>
+</li>
+<li>else B(j)&#x3C;A(i)
+<ul>
+<li>C(k) = B(j)</li>
+<li>j++</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>end</li>
+</ul>
+</li>
+<li>
+<h2 id="running-time">Running Time</h2>
+</li>
+</ul>
+</li>
+</ul> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>

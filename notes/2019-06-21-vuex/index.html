@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VueX Notes | Ash Zhang</title><meta name="description" content="VueX Notes"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="false"> Posts </a><a href="/notes/" data-active="true"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Note</div> <h1>VueX Notes</h1> <div class="article-meta"> <span>21 June 2018</span>  <span> · </span> <span>Wolli Creek</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/vue/"> Vue </a><a class="tag-link" href="/tag/notes/"> Notes </a> </div> <div class="article-body"> <h1 id="genral-concepts">Genral concepts</h1>
+<h2 id="what-is-vuex">What is VueX</h2>
+<blockquote>
+<p>A state management libaray that can share data through all the pages and components</p>
+</blockquote>
+<h3 id="the-benefit-of-using-it">The benefit of using it</h3>
+<ul>
+<li>management the data at one place that can be easily maintenance and develop</li>
+<li>share the data without passing it one layer to one layer</li>
+<li>The data stored in VueX is responsive . It will update automaticly</li>
+</ul>
+<h3 id="what-type-of-data-suits-to-store-in-vuex">What type of data suits to store in VueX</h3>
+<p>Mostly only the data which will be shared across the <strong>componenets</strong> will be store in VueX</p>
+<h2 id="basic-use">Basic use</h2>
+<blockquote>
+<p>In index.js</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Vuex </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'vuex'</span></span>
+<span class="line"><span style="color:#E1E4E8">Vue.</span><span style="color:#B392F0">use</span><span style="color:#E1E4E8">(Vuex)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">cosnt store </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#E1E4E8"> Vuex.</span><span style="color:#B392F0">Store</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    state:{</span></span>
+<span class="line"><span style="color:#E1E4E8">        count : </span><span style="color:#79B8FF">0</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span></span></code></pre>
+<blockquote>
+<p>In</p>
+</blockquote> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>

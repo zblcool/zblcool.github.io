@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Database 101 | Ash Zhang</title><meta name="description" content="Database 101"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="false"> Posts </a><a href="/notes/" data-active="true"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Note</div> <h1>Database 101</h1> <div class="article-meta"> <span>20 Apr 2020</span>  <span> · </span> <span>Sydney</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/database/"> Database </a><a class="tag-link" href="/tag/notes/"> Notes </a> </div> <div class="article-body"> <h1 id="1-postgresql">1. PostgreSQL</h1>
+<ul>
+<li><a href="#1-postgresql">1. PostgreSQL</a>
+<ul>
+<li><a href="#11-sql-commands">1.1. SQL Commands</a>
+<ul>
+<li><a href="#111-create-database">1.1.1. CREATE DATABASE</a></li>
+<li><a href="#112-connect-to-databases">1.1.2. Connect to databases</a></li>
+<li><a href="#113-dangerous-command">1.1.3. Dangerous command</a></li>
+<li><a href="#114-create-tabel">1.1.4. CREATE TABEL</a></li>
+<li><a href="#115-insert-into">1.1.5. INSERT INTO</a></li>
+<li><a href="#116-generate-1000-rows-into-using-mockaroo">1.1.6. Generate 1000 rows into using mockaroo</a></li>
+<li><a href="#117-select-from">1.1.7. Select from</a></li>
+<li><a href="#118-order-by">1.1.8. Order by</a></li>
+<li><a href="#119-distinct">1.1.9. DISTINCT</a></li>
+<li><a href="#1110-where">1.1.10. WHERE</a></li>
+<li><a href="#1111-comparison-operators">1.1.11. Comparison operators</a></li>
+<li><a href="#1112-limit--offset-keywords">1.1.12. Limit / Offset keywords</a></li>
+<li><a href="#1113-in-use-a-set-to-enhance-the-ability-of-where-normally-we-can-use-this-way-to-find-out-the-items-in-the-table">1.1.13. “IN”  use a “set” to enhance the ability of  WHERE Normally we can use this way to find out the items in the table</a></li>
+</ul>
+</li>
+<li><a href="#12-week-4-lecture">1.2. Week 4 lecture</a>
+<ul>
+<li><a href="#121-group-by">1.2.1. GROUP BY</a></li>
+<li><a href="#122-aggregate-fuctions">1.2.2. Aggregate fuctions</a></li>
+<li><a href="#123-subqueris">1.2.3. Subqueris</a></li>
+<li><a href="#124-any-operator">1.2.4. ANY operator</a></li>
+<li><a href="#125-self-join">1.2.5. Self-Join</a></li>
+</ul>
+</li>
+<li><a href="#13-week4-tut">1.3. WEEK4 TUT</a>
+<ul>
+<li><a href="#131-show-the-number-of-missions-flown-in-each-year-order-by-the-launch-year">1.3.1. Show the number of missions flown in each year. Order by the launch year</a></li>
+<li><a href="#132-select-all-projects-and-the-number-of-missions-in-each-project-for-all-projects-with-more-than-one-mission-with-the-given-data">1.3.2. Select all projects and the number of missions in each project, for all projects with more than one mission. With the given data.</a></li>
+<li><a href="#133-select-every-astronaut-who-flew-more-than-one-mission-give-the-name-number-of-missions">1.3.3. Select every astronaut who flew more than one mission. Give the name, number of missions.</a></li>
+<li><a href="#134-show-the-number-of-astronauts-born-each-year">1.3.4. Show the number of astronauts born each year.</a></li>
+<li><a href="#135-show-the-number-of-different-craft-that-have-flown-across-all-missions">1.3.5. Show the number of different craft that have flown across all missions.</a></li>
+<li><a href="#136-show-the-number-of-mission-types-that-have-flown-across-all-missions">1.3.6. Show the number of mission types that have flown across all missions.</a></li>
+<li><a href="#137-copy-to">1.3.7. COPY to</a></li>
+</ul>
+</li>
+<li><a href="#14-week-5-tut">1.4. WEEK  5 TUT</a>
+<ul>
+<li><a href="#141-join">1.4.1. JOIN</a></li>
+<li><a href="#142-natural-join">1.4.2. NATURAL JOIN</a></li>
+<li><a href="#143-inner-join">1.4.3. INNER JOIN</a></li>
+<li><a href="#144-cross-product">1.4.4. Cross product</a></li>
+</ul>
+</li>
+<li><a href="#15-test-sample-3">1.5. Test sample 3</a>
+<ul>
+<li><a href="#151-question-1">1.5.1. Question 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="11-sql-commands">1.1. SQL Commands</h2>
+<h3 id="111-create-database">1.1.1. CREATE DATABASE</h3>
+<ul>
+<li>\q to quit</li>
+<li>\l list all the databases</li>
+<li>CREATE DATABASE test;</li>
+</ul>
+<h3 id="112-connect-to-databases">1.1.2. Connect to databases</h3>
+<ul>
+<li>Psql -h local host -p 5432 -U amigoscode test</li>
+<li>\c test is also connect to a database (after \l)</li>
+</ul>
+<h3 id="113-dangerous-command">1.1.3. Dangerous command</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">CREATE</span><span style="color:#F97583"> DATABASE</span><span style="color:#B392F0"> test</span></span>
+<span class="line"><span style="color:#F97583">DROP</span><span style="color:#F97583"> DATABASE</span><span style="color:#E1E4E8"> test; </span><span style="color:#F97583">//</span><span style="color:#F97583"> drop</span><span style="color:#E1E4E8"> all of datas</span></span></code></pre>
+<h3 id="114-create-tabel">1.1.4. CREATE TABEL</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">CREATE</span><span style="color:#E1E4E8"> TAVLE table_name (</span></span>
+<span class="line"><span style="color:#E1E4E8">Column </span><span style="color:#F97583">name</span><span style="color:#F97583"> +</span><span style="color:#F97583"> data</span><span style="color:#F97583"> type</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> constraints </span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> any</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">\d d </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> describe</span></span>
+<span class="line"><span style="color:#E1E4E8">\d test </span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> show test </span><span style="color:#F97583">table</span><span style="color:#E1E4E8"> contents</span></span></code></pre>
+<p>Should you use constraints ?</p>
+<h3 id="115-insert-into">1.1.5. INSERT INTO</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">INSERT INTO</span><span style="color:#E1E4E8"> test ( </span><span style="color:#F97583">first</span><span style="color:#F97583"> name</span><span style="color:#E1E4E8">,lastname)</span></span>
+<span class="line"><span style="color:#F97583">VALUE</span><span style="color:#E1E4E8"> (‘jane’,’jones’);</span></span></code></pre>
+<h3 id="116-generate-1000-rows-into-using-mockaroo">1.1.6. Generate 1000 rows into using mockaroo</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>a. Provides random data</span></span>
+<span class="line"><span>b. Using \i</span></span>
+<span class="line"><span>c. Pwd to show. Route</span></span></code></pre>
+<h3 id="117-select-from">1.1.7. Select from</h3>
+<h3 id="118-order-by">1.1.8. Order by</h3>
+<ul>
+<li>12345 ASC</li>
+<li>54321 DESC</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> form person </span><span style="color:#F97583">ORDER BY</span><span style="color:#E1E4E8"> first_name </span><span style="color:#F97583">ASC</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">SELECT</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> form person </span><span style="color:#F97583">ORDER BY</span><span style="color:#E1E4E8"> first_name, birth </span><span style="color:#F97583">ASC</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<h3 id="119-distinct">1.1.9. DISTINCT</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">	 SELECT</span><span style="color:#E1E4E8"> country_name </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> person  </span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> will show all the results </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> country_name</span></span>
+<span class="line"><span style="color:#F97583">	 SELECT DISTINCT</span><span style="color:#E1E4E8"> country_name </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> person. </span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> only show one </span><span style="color:#F97583">times</span><span style="color:#F97583"> if</span><span style="color:#F97583"> is</span><span style="color:#E1E4E8"> same country</span></span></code></pre>
+<h3 id="1110-where">1.1.10. WHERE</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">	 SELECT</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> form person </span><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> gender </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ‘MALE’;</span></span>
+<span class="line"><span style="color:#F97583">	 SELECT</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> form person </span><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> gender </span><span style="color:#F97583">=</span><span style="color:#E1E4E8">‘male’ </span><span style="color:#F97583">AND</span><span style="color:#E1E4E8"> (countryName </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ‘Poland’ </span><span style="color:#F97583">or</span><span style="color:#E1E4E8"> countryName </span><span style="color:#F97583">=</span><span style="color:#E1E4E8">‘China ‘) ;</span></span></code></pre>
+<h3 id="1111-comparison-operators">1.1.11. Comparison operators</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">	SELECT</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583"> >=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">; 	</span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> will </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> f</span></span>
+<span class="line"><span style="color:#F97583">	SELECT</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583"> &#x3C;=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;  	</span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> will </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> t</span></span>
+<span class="line"><span style="color:#F97583">	SELECT</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583"> &#x3C;></span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;	</span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> t </span><span style="color:#F97583">&#x3C;></span><span style="color:#E1E4E8"> means </span><span style="color:#F97583">not</span><span style="color:#E1E4E8"> equal </span></span></code></pre>
+<h3 id="1112-limit--offset-keywords">1.1.12. Limit / Offset keywords</h3>
+<p>LIMIT is widely use , but it is not an official way . However . FETCH is</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">   SELECT</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> person </span><span style="color:#F97583">LIMIT</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">//</span><span style="color:#F97583"> select</span><span style="color:#F97583"> first</span><span style="color:#79B8FF"> 10</span><span style="color:#F97583"> rows</span></span>
+<span class="line"><span style="color:#F97583">   SELECT</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> person </span><span style="color:#F97583">LIMIT</span><span style="color:#79B8FF"> 5</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">//</span><span style="color:#F97583"> select</span><span style="color:#F97583"> first</span><span style="color:#79B8FF"> 5</span><span style="color:#F97583"> rows</span></span>
+<span class="line"><span style="color:#E1E4E8">   </span></span>
+<span class="line"><span style="color:#F97583">   SELECT</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> person OFFSET </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">//</span><span style="color:#F97583"> select</span><span style="color:#F97583"> from</span><span style="color:#79B8FF"> 6</span><span style="color:#F97583"> to</span><span style="color:#E1E4E8"> the follow </span><span style="color:#F97583">rows</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">   SELECT</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> person OFFSET </span><span style="color:#79B8FF">5</span><span style="color:#F97583"> FETCH</span><span style="color:#F97583"> FIRST</span><span style="color:#79B8FF"> 5</span><span style="color:#F97583"> ROW</span><span style="color:#E1E4E8"> ONLY; </span><span style="color:#F97583">//</span><span style="color:#F97583"> select</span><span style="color:#F97583"> first</span><span style="color:#79B8FF"> 5</span><span style="color:#F97583"> rows</span><span style="color:#E1E4E8">. OFFICIAL WAY !! </span></span></code></pre>
+<h3 id="1113-in--use-a-set-to-enhance-the-ability-of--where-normally-we-can-use-this-way-to-find-out-the-items-in-the-table">1.1.13. “IN”  use a “set” to enhance the ability of  WHERE Normally we can use this way to find out the items in the table</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> person </span><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> country_of_birth </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ‘China’</span></span>
+<span class="line"><span style="color:#F97583">OR</span><span style="color:#E1E4E8"> country_of_birth </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ‘France” </span><span style="color:#F97583">OR</span><span style="color:#E1E4E8"> country_of_birth </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ‘Brazil”;</span></span></code></pre>
+<blockquote>
+<p>BUT we can use this</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> person </span><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> country_of_birth </span><span style="color:#F97583">IN</span><span style="color:#E1E4E8"> (‘China’,’Brazil’,’France’); </span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> we can also </span><span style="color:#F97583">add</span><span style="color:#F97583"> ORDER BY</span><span style="color:#F97583"> for</span><span style="color:#F97583"> next</span><span style="color:#E1E4E8"> sentence  </span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> don’t </span><span style="color:#F97583">add</span><span style="color:#9ECBFF"> ";"</span><span style="color:#E1E4E8">  </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">ORDER BY</span><span style="color:#E1E4E8"> country_of_birth;</span></span></code></pre>
+<h2 id="12-week-4-lecture">1.2. Week 4 lecture</h2>
+<h3 id="121-group-by">1.2.1. GROUP BY</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"></span></code></pre>
+<h3 id="122-aggregate-fuctions">1.2.2. Aggregate fuctions</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>SELECT AVG(shrdiv) AS avgdiv FROM shr;</span></span>
+<span class="line"><span>SELECT AVG(shrdiv/shrprice*100) AS avgdic FROM shr;</span></span></code></pre>
+<h3 id="123-subqueris">1.2.3. Subqueris</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#E1E4E8"> shrfirm, shrpe </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> shr </span><span style="color:#F97583">WHERE</span></span>
+<span class="line"><span style="color:#E1E4E8">shrpe </span><span style="color:#F97583">></span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">		SELECT</span><span style="color:#79B8FF"> AVG</span><span style="color:#E1E4E8">(shrpe) </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> shr</span></span>
+<span class="line"><span style="color:#E1E4E8">);</span></span></code></pre>
+<blockquote>
+<p>dont read from top , first read inside</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#E1E4E8"> pizza,price</span></span>
+<span class="line"><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> menu</span></span>
+<span class="line"><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> price </span><span style="color:#F97583">>=</span><span style="color:#E1E4E8"> ALL (</span></span>
+<span class="line"><span style="color:#F97583">	SELECT</span><span style="color:#E1E4E8"> price</span></span>
+<span class="line"><span style="color:#F97583">	FROM</span><span style="color:#E1E4E8"> menu </span><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> country </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ‘italy’</span></span>
+<span class="line"><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="124-any-operator">1.2.4. ANY operator</h3>
+<h3 id="125-self-join">1.2.5. Self-Join</h3>
+<p>Join a table to itself</p>
+<hr>
+<h2 id="13-week4-tut">1.3. WEEK4 TUT</h2>
+<h3 id="131-show-the-number-of-missions-flown-in-each-year-order-by-the-launch-year">1.3.1. Show the number of missions flown in each year. Order by the launch year</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"></span>
+<span class="line"><span style="color:#F97583">SELECT</span><span style="color:#E1E4E8"> projectname,launchyear, </span><span style="color:#79B8FF">count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">AS</span><span style="color:#E1E4E8"> missions </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> nasa2_mission </span><span style="color:#F97583">GROUP BY</span><span style="color:#E1E4E8"> projectname, launchyear </span><span style="color:#F97583">ORDER BY</span><span style="color:#E1E4E8"> launchyear;</span></span>
+<span class="line"></span></code></pre>
+<h3 id="132-select-all-projects-and-the-number-of-missions-in-each-project-for-all-projects-with-more-than-one-mission-with-the-given-data">1.3.2. Select all projects and the number of missions in each project, for all projects with more than one mission. With the given data.</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#E1E4E8"> projectname, </span><span style="color:#79B8FF">count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">AS</span><span style="color:#E1E4E8"> number_missions </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> nasa2_mission </span><span style="color:#F97583">GROUP BY</span><span style="color:#E1E4E8"> projectname </span><span style="color:#F97583">having</span><span style="color:#79B8FF"> count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<h3 id="133-select-every-astronaut-who-flew-more-than-one-mission-give-the-name-number-of-missions">1.3.3. Select every astronaut who flew more than one mission. Give the name, number of missions.</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">select</span><span style="color:#E1E4E8"> astroname, </span><span style="color:#79B8FF">count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> missions </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> nasa2_astronaut </span><span style="color:#F97583">natural join</span><span style="color:#E1E4E8"> nasa2_</span></span>
+<span class="line"><span style="color:#E1E4E8">assigned </span><span style="color:#F97583">GROUP BY</span><span style="color:#E1E4E8"> astroname </span><span style="color:#F97583">having</span><span style="color:#79B8FF"> count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 1</span></span></code></pre>
+<blockquote>
+<p>having is pretty useful</p>
+<blockquote>
+<p>count(*) should be careful here</p>
+</blockquote>
+</blockquote>
+<h3 id="134-show-the-number-of-astronauts-born-each-year">1.3.4. Show the number of astronauts born each year.</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#E1E4E8"> birth,</span><span style="color:#79B8FF">count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> nasa2_astronaut </span><span style="color:#F97583">GROUP BY</span><span style="color:#E1E4E8"> birth;</span></span></code></pre>
+<h3 id="135-show-the-number-of-different-craft-that-have-flown-across-all-missions">1.3.5. Show the number of different craft that have flown across all missions.</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">SELECT</span><span style="color:#E1E4E8"> missiontype, </span><span style="color:#79B8FF">count</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> nasa2_mission </span><span style="color:#F97583">GROUP BY</span><span style="color:#E1E4E8"> missiontype;</span></span></code></pre>
+<h3 id="136-show-the-number-of-mission-types-that-have-flown-across-all-missions">1.3.6. Show the number of mission types that have flown across all missions.</h3>
+<p>！TODO</p>
+<h3 id="137-copy-to">1.3.7. COPY to</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#E1E4E8">\</span><span style="color:#F97583">copy</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">select</span><span style="color:#F97583"> *</span><span style="color:#F97583"> FROM</span><span style="color:#E1E4E8"> nasa_projects) </span><span style="color:#F97583">to</span><span style="color:#79B8FF"> test_projects</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">csv</span></span></code></pre>
+<blockquote>
+<p>so i can save the result of the query in () as a csv file</p>
+</blockquote>
+<h2 id="14-week--5-tut">1.4. WEEK  5 TUT</h2>
+<h3 id="141-join">1.4.1. JOIN</h3>
+<p><a href="https://w3resource.com/PostgreSQL/postgresql-join.php">Different types of Join</a></p>
+<h3 id="142-natural-join">1.4.2. NATURAL JOIN</h3>
+<ul>
+<li>If there is same colum, using NATURE JOIN</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"></span>
+<span class="line"><span style="color:#F97583">select</span><span style="color:#F97583"> *</span><span style="color:#F97583"> from</span><span style="color:#E1E4E8"> menu </span><span style="color:#F97583">natural join</span><span style="color:#E1E4E8"> recipe </span><span style="color:#F97583">order by</span><span style="color:#E1E4E8"> pizza;</span></span>
+<span class="line"></span></code></pre>
+<h3 id="143-inner-join">1.4.3. INNER JOIN</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"></span>
+<span class="line"><span style="color:#F97583">select</span><span style="color:#F97583"> *</span><span style="color:#F97583"> from</span><span style="color:#E1E4E8"> menu </span><span style="color:#F97583">INNER JOIN</span><span style="color:#E1E4E8"> recipe </span><span style="color:#F97583">using</span><span style="color:#E1E4E8">(pizza);</span></span>
+<span class="line"></span></code></pre>
+<h3 id="144-cross-product">1.4.4. Cross product</h3>
+<p>There are two ways of using cross product.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">select</span><span style="color:#F97583"> *</span><span style="color:#F97583"> from</span><span style="color:#E1E4E8"> menu , recipe;</span></span></code></pre>
+<blockquote>
+<p>get every combines that can be combined</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">select</span><span style="color:#F97583"> *</span><span style="color:#F97583"> from</span><span style="color:#E1E4E8"> menu , recipe </span><span style="color:#F97583">where</span><span style="color:#79B8FF"> menu</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">pizza</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> recipe</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">pizza</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<blockquote>
+<p>same result with Natural join</p>
+</blockquote>
+<h2 id="15-test-sample-3">1.5. Test sample 3</h2>
+<h3 id="151-question-1">1.5.1. Question 1</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#F97583">select</span><span style="color:#E1E4E8"> astroname, death, (death </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> birth) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> age </span><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> nasa2_astronaut </span><span style="color:#F97583">WHERE</span><span style="color:#E1E4E8"> death </span><span style="color:#F97583">>=</span><span style="color:#79B8FF"> 1960</span><span style="color:#F97583"> and</span><span style="color:#E1E4E8"> death </span><span style="color:#F97583">=&#x3C;</span><span style="color:#79B8FF"> 1970</span><span style="color:#F97583"> ORDER BY</span><span style="color:#E1E4E8"> death;</span></span></code></pre> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>

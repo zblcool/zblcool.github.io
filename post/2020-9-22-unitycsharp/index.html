@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Unity &amp; C# notes | Ash Zhang</title><meta name="description" content="Unity &#38; C# notes"><link rel="icon" type="image/png" href="/logo.png"><link rel="stylesheet" href="/_astro/BaseLayout.D0fYMTLv.css"></head> <body> <div class="site-shell"> <header class="site-header"> <div class="site-header__inner"> <a class="brand" href="/"> <img class="brand__mark" src="/logo.png" alt="Ash Zhang logo"> <span class="brand__text"> <span class="brand__title">Ash Zhang</span> <span class="brand__subtitle">Computer Graphics Focused Web Developer</span> </span> </a> <nav class="nav" aria-label="Primary navigation"> <a href="/" data-active="false"> Home </a><a href="/post/" data-active="true"> Posts </a><a href="/notes/" data-active="false"> Notes </a><a href="/tag/" data-active="false"> Tags </a><a href="/portfolio/" data-active="false"> Portfolio </a><a href="/cv/" data-active="false"> CV </a><a href="/tool/" data-active="false"> Tools </a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="eyebrow">Post</div> <h1>Unity &amp; C# notes</h1> <div class="article-meta"> <span>22 Sept 2020</span>  <span> · </span> <span>Wooli Creek, Sydeny</span>   <span> · </span> <span>Ash</span>  </div> <div class="tag-list"> <a class="tag-link" href="/tag/unity/"> Unity </a><a class="tag-link" href="/tag/c-sharp/"> C# </a> </div> <div class="article-body"> <blockquote>
+<p>This is the note that stores my findings while doing the UTS FEIT31263 Game Development’s assignment3</p>
+</blockquote>
+<h1 id="1-csharp">1. CSharp</h1>
+<h2 id="11-clampmagnitude">1.1. ClampMagnitude</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#F97583">public</span><span style="color:#F97583"> static</span><span style="color:#B392F0"> Vector3</span><span style="color:#B392F0"> ClampMagnitude</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">Vector3</span><span style="color:#B392F0"> vector</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">float</span><span style="color:#B392F0"> maxLength</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Returns the copy of the Vector3 with its magnitude clamped to MaxLength</span></span></code></pre>
+<h2 id="12-properties-in-csharp">1.2. Properties in CSharp</h2>
+<blockquote>
+<p>Lets look at the grammar first</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Person</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#F97583"> string</span><span style="color:#B392F0"> _name</span><span style="color:#E1E4E8">;  </span><span style="color:#6A737D">// the name field</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> string</span><span style="color:#B392F0"> Name</span><span style="color:#6A737D">    // the Name property</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#F97583">        get</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> _name;</span></span>
+<span class="line"><span style="color:#F97583">        set</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> _name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> value; </span><span style="color:#6A737D">// value is a placeholder</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#F97583"> static</span><span style="color:#B392F0"> GameSpeed</span><span style="color:#B392F0"> currentSpeedState</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> static</span><span style="color:#B392F0"> GameSpeed</span><span style="color:#B392F0"> CurrentSpeedState</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#F97583">        get</span><span style="color:#E1E4E8"> { </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> currentSpeedState; }</span></span>
+<span class="line"><span style="color:#F97583">        set</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">            currentSpeedState </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> value;</span></span>
+<span class="line"><span style="color:#E1E4E8">            speedModifier </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">float</span><span style="color:#E1E4E8">)value;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    void</span><span style="color:#B392F0"> updata</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">        Person.CurrentSpeedState </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">SpeedManager</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">GameSpeed</span><span style="color:#E1E4E8">)PlayerPrefs.</span><span style="color:#B392F0">GetInt</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"currentSpeedState"</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">// when you want to use it, just assign the value to it </span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>“value” in the Setter is just a placeholder like other parameters in a function</li>
+<li>Properties is a constructor that have a getter and setter, you can set several things in setter.</li>
+</ul>
+<h2 id="13-ways-to-run-a-method-later-in-sometime">1.3. Ways to Run a method later in sometime</h2>
+<h3 id="131-invoke">1.3.1. Invoke()</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#B392F0">Invoke</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"dosomething"</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">//this will happen after 2 seconds</span></span></code></pre>
+<h3 id="132-coroutines">1.3.2. coroutines</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#B392F0"> IEnumerator</span><span style="color:#B392F0"> ExecuteAfterTime</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">float</span><span style="color:#B392F0"> time</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">     yield</span><span style="color:#F97583"> return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> WaitForSeconds</span><span style="color:#E1E4E8">(time);</span></span>
+<span class="line"><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#6A737D">     // Code to execute after the delay</span></span>
+<span class="line"><span style="color:#E1E4E8"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0"> StartCoroutine</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">ExecuteAfterTime</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#6A737D">//  OR</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">IEnumerator</span><span style="color:#B392F0"> ExecuteAfterTime</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">float</span><span style="color:#B392F0"> time</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">Action</span><span style="color:#B392F0"> task</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">     if</span><span style="color:#E1E4E8"> (isCoroutineExecuting)</span></span>
+<span class="line"><span style="color:#F97583">         yield</span><span style="color:#F97583"> break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">     isCoroutineExecuting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">     yield</span><span style="color:#F97583"> return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> WaitForSeconds</span><span style="color:#E1E4E8">(time);</span></span>
+<span class="line"><span style="color:#B392F0">     task</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">     isCoroutineExecuting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8"> }</span></span></code></pre>
+<h2 id="14-operators">1.4. Operators</h2>
+<h3 id="141-ternary-operator-">1.4.1. Ternary Operator ”?”</h3>
+<p>My example</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>void update(){</span></span>
+<span class="line"><span>                SpeedManager.CurrentSpeedState =</span></span>
+<span class="line"><span>                SpeedManager.CurrentSpeedState == SpeedManager.GameSpeed.Fast ?</span></span>
+<span class="line"><span>                SpeedManager.GameSpeed.Slow :</span></span>
+<span class="line"><span>                SpeedManager.GameSpeed.Fast ;</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<p>It looks like</p>
+<blockquote>
+<p>condition ? statement 1 : statement 2</p>
+</blockquote>
+<ul>
+<li>the line I hightlighted is the start which is assign some value to CurrentSpeedState</li>
+<li>what I did follow is state a condition which is line 3</li>
+<li>and line 4&#x26;5 is the statement 1&#x26;2</li>
+</ul>
+<h2 id="15-invokerepeating-and-cancel-repeat">1.5. InvokeRepeating and cancel repeat</h2>
+<blockquote>
+<p>If you wan to invoke a function/method after X seconds and repeat call it every Y seconds</p>
+</blockquote>
+<h3 id="151-invokerepeating">1.5.1. InvokeRepeating</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#B392F0">InvokeRepeating</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"LaunchProjectile"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0.3F</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6A737D">// start in 2s. repeat every 0.3s</span></span></code></pre>
+<h3 id="152-cancel-repeat">1.5.2. Cancel repeat</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#B392F0">CancelInvoke</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// this will cancle all the invokes in the enviroment.</span></span></code></pre>
+<h2 id="16-audio-control">1.6. Audio Control</h2>
+<h3 id="161-check-audio-status">1.6.1. Check audio status</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>AudioSource.isPlaying</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#F97583">public</span><span style="color:#B392F0"> AudioClip</span><span style="color:#B392F0"> otherClip</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">AudioSource</span><span style="color:#B392F0"> audioSource</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> Start</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#E1E4E8">    audioSource </span><span style="color:#F97583">=</span><span style="color:#B392F0"> GetComponent</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">>();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> Update</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">audioSource.isPlaying) </span><span style="color:#6A737D">// check status</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">        audioSource.clip </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> otherClip;</span><span style="color:#6A737D">// change clips</span></span>
+<span class="line"><span style="color:#E1E4E8">        audioSource.</span><span style="color:#B392F0">Play</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="162-sequence-play">1.6.2. sequence play</h3>
+<blockquote>
+<p>play an audio file after another finishes</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">RequireComponent</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">))]</span></span>
+<span class="line"><span style="color:#F97583"> public</span><span style="color:#F97583"> class</span><span style="color:#B392F0"> LoopBGM</span><span style="color:#E1E4E8"> : </span><span style="color:#B392F0">MonoBehaviour</span></span>
+<span class="line"><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">     public</span><span style="color:#B392F0"> AudioClip</span><span style="color:#B392F0"> StartClip</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">     public</span><span style="color:#B392F0"> AudioClip</span><span style="color:#B392F0"> LoopClip</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#F97583">     void</span><span style="color:#B392F0"> Start</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">     {</span></span>
+<span class="line"><span style="color:#B392F0">         StartCoroutine</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">playSound</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">     IEnumerator</span><span style="color:#B392F0"> playSound</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">     {</span></span>
+<span class="line"><span style="color:#B392F0">         GetComponent</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">>().clip </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> StartClip;</span></span>
+<span class="line"><span style="color:#B392F0">         GetComponent</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">>().</span><span style="color:#B392F0">Play</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">         yield</span><span style="color:#F97583"> return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> WaitForSeconds</span><span style="color:#E1E4E8">(StartClip.length);</span></span>
+<span class="line"><span style="color:#B392F0">         GetComponent</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">>().clip </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> LoopClip;</span></span>
+<span class="line"><span style="color:#B392F0">         GetComponent</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">>().</span><span style="color:#B392F0">Play</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#B392F0">         GetComponent</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AudioSource</span><span style="color:#E1E4E8">>().loop </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">     }</span></span>
+<span class="line"><span style="color:#E1E4E8"> }</span></span></code></pre>
+<h2 id="17-modify-a-list-while-using-it">1.7. Modify a list while using it</h2>
+<blockquote>
+<p>Normally, you can not do this because the unity does not allow you to modify it while in a foreach loop. So, what we can do is:</p>
+</blockquote>
+<ul>
+<li>Use a for loop instead</li>
+<li>Create a separate collection of the items you want to act on, then iterate over that.</li>
+</ul>
+<p>Second approach</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>List&#x3C;EduvisionUser> usersToRemove = new List&#x3C;EduvisionUser>();</span></span>
+<span class="line"><span>foreach (EduvisionUser aUser in users) --->***Exception thrown in this line***</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>    isUserAvailable = true;</span></span>
+<span class="line"><span>    if(!aUser.Activated)</span></span>
+<span class="line"><span>    {</span></span>
+<span class="line"><span>        usersToRemove.Add(aUser);// Add to another list</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span>foreach (EduvisionUser userToRemove in usersToRemove)</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>    users.Remove(userToRemove);// delete the items in original list</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<h1 id="2-unity">2. Unity</h1>
+<h2 id="21-trigger-not-working">2.1. trigger not working</h2>
+<blockquote>
+<p>This might because you set the “has exit time” checkbox to be checked. If you want to use the trigger to start the transition, you need to cancel that box.</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="csharp"><code><span class="line"><span style="color:#F97583">    void</span><span style="color:#B392F0"> SetTriggerToPacman</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#6A737D">        //set a trigger for the state machine to change animation</span></span>
+<span class="line"><span style="color:#E1E4E8">        animator.</span><span style="color:#B392F0">SetTrigger</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"marked"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">    Invoke</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"SetTriggerToPacman"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1.5f</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">// Sometimes you need time for the transition. So you leave 1.5f here</span></span></code></pre>
+<h2 id="22-transform">2.2. Transform</h2>
+<h3 id="221-face-the-forward-of-a-transform">2.2.1. Face the forward of a transform</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#E1E4E8">transform.forward</span></span></code></pre>
+<h2 id="23-scene-manager">2.3. Scene manager</h2>
+<h3 id="231-check-if-scene-is-loaded">2.3.1. check if scene is loaded</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#E1E4E8">SceneManager.</span><span style="color:#B392F0">GetActiveScene</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">==</span><span style="color:#E1E4E8"> SceneManager.</span><span style="color:#B392F0">GetSceneByName</span><span style="color:#E1E4E8"> (</span><span style="color:#9ECBFF">"scene1"</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<h3 id="232-load-scene">2.3.2. Load scene</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#B392F0">LoadScene</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#E1E4E8"> sceneBuildIndex, SceneManagement.LoadSceneMode mode </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> LoadSceneMode.Single)</span></span>
+<span class="line"><span style="color:#B392F0">LoadScene</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">string</span><span style="color:#E1E4E8"> sceneName, SceneManagement.LoadSceneMode mode </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> LoadSceneMode.Single);</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>load scene can load base on the name of the scene or the index of that scene</span></span></code></pre>
+<h2 id="24-playerprefs">2.4. PlayerPrefs</h2>
+<h3 id="241-check-if-in-the-preferences-have-specific-key">2.4.1. Check if in the preferences have specific key</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>PlayerPrefs.HasKey(string Key)</span></span></code></pre>
+<h3 id="242-playerprefssetint">2.4.2. PlayerPrefs.SetInt</h3>
+<blockquote>
+<p>set the value of the preference identiffied by key</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cs"><code><span class="line"><span style="color:#E1E4E8">    PlayerPrefs.</span><span style="color:#B392F0">SetInt</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">string</span><span style="color:#E1E4E8"> key, </span><span style="color:#F97583">int</span><span style="color:#E1E4E8"> value);</span></span></code></pre>
+<h2 id="25-rigidbody">2.5. Rigidbody</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Set the Constraints of this Rigidbody to freeze the x, y and z rotation. This will stop our character from falling / rolling over due to gravity and the</span></span></code></pre>
+<h2 id="26-transform">2.6. Transform</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Soem times the translate is werid. This is because the Transform.Translate() defaults to local space translation, which is affected by an object’s rotation.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Set Transform.Translate() to use Space.World.</span></span></code></pre> </div> </article>  </main> <footer class="site-footer"> <div class="site-footer__panel"> <div> <strong>Ash Zhang</strong> <p class="muted">A personal site for writing, experiments, and portfolio work, rebuilt to stay content-first while leaving room for future 3D work.</p> </div> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer"> GitHub </a><a href="https://www.linkedin.com/in/baolong-zhang-704062a1/" target="_blank" rel="noreferrer"> LinkedIn </a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer"> Instagram </a> </div> </div> </footer> </div> </body></html>
