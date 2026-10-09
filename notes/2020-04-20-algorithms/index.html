@@ -1,56 +1,15 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Algorithms Notes | Ash Zhang</title><meta name="description" content="Algorithms Notes"><meta property="og:title" content="Algorithms Notes | Ash Zhang"><meta property="og:description" content="Algorithms Notes"><link rel="icon" type="image/png" href="/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap"><link rel="stylesheet" href="/_astro/BaseLayout.iXCKKwVA.css"></head> <body> <header class="site-header" id="site-header"> <div class="wrap site-header__inner"> <a class="brand" href="/"> <img src="/logo.png" alt=""> <span>Ash Zhang</span> </a> <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"> <span class="nav-toggle__label">Menu</span> </button> <nav class="nav" id="site-nav" aria-label="Primary"> <a href="/portfolio/" data-active="false"> Work </a><a href="/#services" data-active="false"> Services </a><a href="/post/" data-active="true"> Writing </a><a href="/cv/" data-active="false"> About </a> <a class="btn btn--sm" href="mailto:ash.zhang.work@gmail.com">Start a project</a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="label">Note</div> <h1>Algorithms Notes</h1> <div class="article-meta label"> <span>20 Apr 2020</span>  <span> · </span> <span>Sydney</span>   <span> · </span> <span>Ash</span>  </div>   <div class="tag-list"> <a class="tag-link" href="/tag/algorithms/"> Algorithms </a><a class="tag-link" href="/tag/notes/"> Notes </a> </div> <div class="article-body"> <h1 id="1-algorithms-notes">1. Algorithms Notes</h1>
-<ul>
-<li><a href="#1-algorithms-notes">1. Algorithms Notes</a>
-<ul>
-<li><a href="#11-quick-find">1.1. Quick-Find</a></li>
-<li><a href="#12-quick-union">1.2. Quick-Union</a>
-<ul>
-<li><a href="#121-data-structure">1.2.1. DATA Structure</a></li>
-<li><a href="#122-find-way">1.2.2. Find way</a></li>
-<li><a href="#123-union">1.2.3. Union</a></li>
-<li><a href="#124-problems">1.2.4. Problems</a></li>
-<li><a href="#125-improvement">1.2.5. Improvement</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="11-quick-find">1.1. Quick-Find</h2>
-<ul>
-<li>easy to think but not efficient</li>
-</ul>
-<h2 id="12-quick-union">1.2. Quick-Union</h2>
-<blockquote>
-<p>“still easy but cost too much”</p>
-</blockquote>
-<h3 id="121-data-structure">1.2.1. DATA Structure</h3>
-<ul>
-<li>in the id[ i ]  array, each number have a roots if they are union with another one . So the number it stores is the number of id[ i ] , Which indicates the root of it. Keep finding ,and you will find the real root.</li>
-</ul>
-<h3 id="122-find-way">1.2.2. Find way</h3>
-<ul>
-<li>check if  p and q have the same root</li>
-</ul>
-<h3 id="123-union">1.2.3. Union</h3>
-<ul>
-<li>To merge components containing p and q . Set the id of p’s root to the id of  q’s root</li>
-<li>Dont have to connect one with another one . Just connect with its root. Because when you want to check if they are connected . Only check their roots</li>
-</ul>
-<h3 id="124-problems">1.2.4. Problems</h3>
-<ul>
-<li>The tree might be really tall . So each time you need to do ROOT() function too many times.</li>
-</ul>
-<h3 id="125-improvement">1.2.5. Improvement</h3>
-<ul>
-<li>Weighted quick-union
-<ul>
-<li>Weighting the tree . There is gonna be two kinds of tree . longer tree and smaller tree .Make sure connect the smaller tree’s root to the longer one’s</li>
-<li>But how to know which tree is longer? how to mark this
-<ul>
-<li>add another array named size[ ]  put the depth of root in it.</li>
-<li>compare the depth while merging the trees.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul> </div> </article> <div class="pager wrap"> <a href="/notes/2020-04-20-database-101/"><span class="label">Older</span><strong>Database 101</strong></a> <a href="/notes/2020-05-08-fsd/"><span class="label">Newer</span><strong>Foudamental of Software Devleopment</strong></a> </div>  </main>  <script type="module">const t=document.getElementById("site-header"),a=t?.querySelector(".nav-toggle"),l=e=>{t?.toggleAttribute("data-open",e),a?.setAttribute("aria-expanded",String(e));const n=a?.querySelector(".nav-toggle__label");n&&(n.textContent=e?"Close":"Menu")};a?.addEventListener("click",()=>l(!t?.hasAttribute("data-open")));t?.querySelectorAll(".nav a").forEach(e=>e.addEventListener("click",()=>l(!1)));</script> <footer class="site-footer"> <div class="wrap site-footer__inner"> <span>© 2026 Ash Zhang</span> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ash-zhang/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer">Instagram</a> </div> </div> </footer> </body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0; url=/blog/notes/2020-04-20-algorithms/">
+    <link rel="canonical" href="/blog/notes/2020-04-20-algorithms/">
+    <script>
+      window.location.replace("/blog/notes/2020-04-20-algorithms/");
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/blog/notes/2020-04-20-algorithms/">/blog/notes/2020-04-20-algorithms/</a>.</p>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Machine learning | Ash Zhang</title><meta name="description" content="Machine learning"><meta property="og:title" content="Machine learning | Ash Zhang"><meta property="og:description" content="Machine learning"><link rel="icon" type="image/png" href="/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap"><link rel="stylesheet" href="/_astro/BaseLayout.iXCKKwVA.css"></head> <body> <header class="site-header" id="site-header"> <div class="wrap site-header__inner"> <a class="brand" href="/blog/"> <img src="/logo.png" alt=""> <span>Ash Zhang</span> </a> <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"> <span class="nav-toggle__label">Menu</span> </button> <nav class="nav" id="site-nav" aria-label="Primary"> <a href="/blog/portfolio/" data-active="false"> Work </a><a href="/blog/#services" data-active="false"> Services </a><a href="/blog/post/" data-active="true"> Writing </a><a href="/blog/cv/" data-active="false"> About </a><a href="/" data-active="false"> Ashmartisan </a> <a class="btn btn--sm" href="mailto:ash.zhang.work@gmail.com">Start a project</a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="label">Note</div> <h1>Machine learning</h1> <div class="article-meta label"> <span>10 Mar 2020</span>  <span> · </span> <span>Sydney</span>   <span> · </span> <span>Ash</span>  </div>   <div class="tag-list"> <a class="tag-link" href="/blog/tag/machine-learning/"> Machine Learning </a><a class="tag-link" href="/blog/tag/notes/"> Notes </a> </div> <div class="article-body"> <h1 id="1-machine-learning">1. Machine learning</h1>
+<ul>
+<li><a href="#1-machine-learning">1. Machine learning</a>
+<ul>
+<li><a href="#11-chapter">1.1. Chapter</a>
+<ul>
+<li><a href="#111-weight">1.1.1. Weight</a></li>
+<li><a href="#112-bias">1.1.2. Bias</a></li>
+<li><a href="#113-cost">1.1.3. Cost</a></li>
+</ul>
+</li>
+<li><a href="#12-gradient">1.2. Gradient</a>
+<ul>
+<li><a href="#121-minimum-of-a-fx">1.2.1. minimum of a f(x)</a></li>
+<li><a href="#122-gradeint">1.2.2. Gradeint</a></li>
+<li><a href="#123-michele-nilsen-neural-networks-website">1.2.3. michele nilsen neural networks website</a></li>
+<li><a href="#124-paper">1.2.4. paper</a></li>
+<li><a href="#125-aim-is-to-reduce-the-cost-function">1.2.5. aim is to reduce the cost function</a></li>
+</ul>
+</li>
+<li><a href="#13-backpropagation">1.3. Backpropagation</a></li>
+<li><a href="#14-mnist-database-training-materials">1.4. MNIST DATABASE Training materials</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="11-chapter">1.1. Chapter</h2>
+<ul>
+<li>different level have diff orintaion</li>
+<li>split the character and number into many components .</li>
+</ul>
+<p>Base on databases wich have thounsansds of number and graph match which teach them .</p>
+<h3 id="111-weight">1.1.1. Weight</h3>
+<h3 id="112-bias">1.1.2. Bias</h3>
+<h3 id="113-cost">1.1.3. Cost</h3>
+<p>How good is a network</p>
+<h2 id="12-gradient">1.2. Gradient</h2>
+<h3 id="121-minimum-of-a-fx">1.2.1. minimum of a f(x)</h3>
+<ul>
+<li>local minumusm
+<ul>
+<li>caculter the 斜率  to the lower place . test again till the gradient become 0</li>
+<li>doable</li>
+</ul>
+</li>
+<li>Global minimum
+<ul>
+<li>drop several of balls to firgure out the minumum and compare them.</li>
+<li>crazy hard</li>
+</ul>
+</li>
+</ul>
+<h3 id="122-gradeint">1.2.2. Gradeint</h3>
+<blockquote>
+<p>“This solve my consider about how to find out the good weight”</p>
+</blockquote>
+<ul>
+<li>the direction to deep
+<ul>
+<li>Compute <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∇</mi></mrow><annotation encoding="application/x-tex">\nabla</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">∇</span></span></span></span>C  add a negative before it -<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∇</mi></mrow><annotation encoding="application/x-tex">\nabla</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">∇</span></span></span></span>C small step add repeat
+<blockquote>
+<p>“this is what need to add and reduce every times”</p>
+</blockquote>
+</li>
+<li>like W0 should increase 0.1 W2should decrese 0.2</li>
+</ul>
+</li>
+</ul>
+<h3 id="123-michele-nilsen-neural-networks-website">1.2.3. michele nilsen neural networks website</h3>
+<h3 id="124-paper">1.2.4. paper</h3>
+<ul>
+<li>understanding deep learning requires re-thinking generalization</li>
+<li>A closer lokk at memorization in deep networks</li>
+</ul>
+<h3 id="125-aim-is-to-reduce-the-cost-function">1.2.5. aim is to reduce the cost function</h3>
+<ul>
+<li>use -<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∇</mi></mrow><annotation encoding="application/x-tex">\nabla</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">∇</span></span></span></span>C(weithts and biases) to reduce  C()</li>
+<li>The methods mentioned above is an old way of doing this</li>
+</ul>
+<h2 id="13-backpropagation">1.3. Backpropagation</h2>
+<h2 id="14-mnist-database-training-materials">1.4. MNIST DATABASE Training materials</h2> </div> </article> <div class="pager wrap"> <a href="/blog/notes/2019-06-21-vuex/"><span class="label">Older</span><strong>VueX Notes</strong></a> <a href="/blog/notes/2020-03-08-math-notes/"><span class="label">Newer</span><strong>Mathematics in CS</strong></a> </div>  </main>  <script type="module">const t=document.getElementById("site-header"),a=t?.querySelector(".nav-toggle"),l=e=>{t?.toggleAttribute("data-open",e),a?.setAttribute("aria-expanded",String(e));const n=a?.querySelector(".nav-toggle__label");n&&(n.textContent=e?"Close":"Menu")};a?.addEventListener("click",()=>l(!t?.hasAttribute("data-open")));t?.querySelectorAll(".nav a").forEach(e=>e.addEventListener("click",()=>l(!1)));</script> <footer class="site-footer"> <div class="wrap site-footer__inner"> <span>© 2026 Ash Zhang</span> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ash-zhang/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer">Instagram</a> </div> </div> </footer> </body></html>

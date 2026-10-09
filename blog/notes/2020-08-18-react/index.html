@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>React Notes | Ash Zhang</title><meta name="description" content="React Notes"><meta property="og:title" content="React Notes | Ash Zhang"><meta property="og:description" content="React Notes"><link rel="icon" type="image/png" href="/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap"><link rel="stylesheet" href="/_astro/BaseLayout.iXCKKwVA.css"></head> <body> <header class="site-header" id="site-header"> <div class="wrap site-header__inner"> <a class="brand" href="/blog/"> <img src="/logo.png" alt=""> <span>Ash Zhang</span> </a> <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"> <span class="nav-toggle__label">Menu</span> </button> <nav class="nav" id="site-nav" aria-label="Primary"> <a href="/blog/portfolio/" data-active="false"> Work </a><a href="/blog/#services" data-active="false"> Services </a><a href="/blog/post/" data-active="true"> Writing </a><a href="/blog/cv/" data-active="false"> About </a><a href="/" data-active="false"> Ashmartisan </a> <a class="btn btn--sm" href="mailto:ash.zhang.work@gmail.com">Start a project</a> </nav> </div> </header> <main class="page">  <article class="article-shell"> <div class="label">Note</div> <h1>React Notes</h1> <div class="article-meta label"> <span>18 Aug 2020</span>  <span> · </span> <span>Sydney</span>   <span> · </span> <span>Ash</span>  </div>   <div class="tag-list"> <a class="tag-link" href="/blog/tag/react/"> React </a><a class="tag-link" href="/blog/tag/notes/"> Notes </a><a class="tag-link" href="/blog/tag/front-end/"> Front End </a> </div> <div class="article-body"> <h1 id="1-react">1. React</h1>
+<h2 id="11-es-new-features">1.1. ES new features</h2>
+<h3 id="111-spread-and-rest-operator">1.1.1. Spread and rest operator</h3>
+<p>Spread
+Used to build a new array based on the one we have</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> numbers</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> newNumbers</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">numbers,</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(newNumbers)</span></span>
+<span class="line"><span style="color:#6A737D">// should be [1,2,3,4]</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> person</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'Max'</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> newPerson</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    ...</span><span style="color:#E1E4E8">person,</span></span>
+<span class="line"><span style="color:#E1E4E8">    age:</span><span style="color:#79B8FF">28</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(newPerson);</span></span></code></pre>
+<p>Rest operator
+use to filter</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> filter</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">...</span><span style="color:#FFAB70">args</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> args.</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">el</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> el </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#6A737D">// [1]</span></span></code></pre>
+<h3 id="112-destructing">1.1.2. destructing</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> numbers</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">[num1, ,num3] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> numbers;</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(num1,num3);</span></span></code></pre>
+<h3 id="113-reference">1.1.3. Reference</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> person</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'Max'</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> secondPerson</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> person;</span></span>
+<span class="line"><span style="color:#6A737D">// if you use const secondPerson = {</span></span>
+<span class="line"><span style="color:#6A737D">//    ...person </span></span>
+<span class="line"><span style="color:#6A737D">// } then it should be another object insead of reference</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">person.name </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'Manu'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(secondPerson);</span></span>
+<span class="line"><span style="color:#6A737D">// Manu</span></span></code></pre>
+<h3 id="114-array-refreashing">1.1.4. array refreashing</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> numbers</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> doubleNumArray</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> numbers.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">num</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> num </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span></span>
+<span class="line"><span style="color:#6A737D">// [1,2,3]</span></span>
+<span class="line"><span style="color:#6A737D">// [2,4,6]</span></span></code></pre>
+<h2 id="12-react-basic">1.2. React basic</h2>
+<br>
+<br>
+<h1 id="react-document-notes">React Document Notes</h1>
+<h2 id="super">Super()</h2>
+<blockquote>
+<p>在 JavaScript class 中，每次你定义其子类的构造函数时，都需要调用 super 方法。因此，在所有含有构造函数的的 React 组件中，构造函数必须以 super(props) 开头。</p>
+</blockquote> </div> </article> <div class="pager wrap"> <a href="/blog/notes/2020-08-14-cpp/"><span class="label">Older</span><strong>C++ Notes</strong></a> <a href="/blog/notes/2020-10-19-tableau/"><span class="label">Newer</span><strong>Tableau</strong></a> </div>  </main>  <script type="module">const t=document.getElementById("site-header"),a=t?.querySelector(".nav-toggle"),l=e=>{t?.toggleAttribute("data-open",e),a?.setAttribute("aria-expanded",String(e));const n=a?.querySelector(".nav-toggle__label");n&&(n.textContent=e?"Close":"Menu")};a?.addEventListener("click",()=>l(!t?.hasAttribute("data-open")));t?.querySelectorAll(".nav a").forEach(e=>e.addEventListener("click",()=>l(!1)));</script> <footer class="site-footer"> <div class="wrap site-footer__inner"> <span>© 2026 Ash Zhang</span> <div class="site-footer__links"> <a href="https://github.com/zblcool" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ash-zhang/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.instagram.com/zblash95/?hl=zh-cn" target="_blank" rel="noreferrer">Instagram</a> </div> </div> </footer> </body></html>
